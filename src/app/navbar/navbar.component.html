@@ -1,26 +1,30 @@
 <nav class="navbar">
-    <div *ngIf="githubService.getSignedStatus(); then signedIn; else notSignedIn"></div>
+
+    <div class="navbar-wrapper">
+        <div class="content">
+            <a [routerLink]="['./']" class="brand">
+                <img src="/assets/images/octocat.png" alt="Octocat - GitHub">
+            </a>
+            <div class="right-side">
+                <div *ngIf="githubService.getSignedStatus(); then signedIn; else notSignedIn"></div>
+            </div>
+        </div>
+    </div>
+
+
 
     <ng-template #signedIn>
-        <div class="navbar-wrapper">
-            navbar works!
-            <button type="button" (click)="doSignOut()">
-                <span class="fa fa-sign-out"></span>
-                Sair
-            </button>
-        </div>
-
+        <button type="button" class="btn-action" (click)="doSignOut()">
+            <span class="fa fa-sign-out"></span>
+            Sair
+        </button>
     </ng-template>
 
     <ng-template #notSignedIn>
-        <div class="navbar-wrapper">
-            navbar works!
-
-            <button type="button" (click)="doSignIn()">
-                <span class="fa fa-sign-in"></span>
-                Entrar
-            </button>
-        </div>
+        <button type="button" class="btn-action" (click)="doSignIn()">
+            <span class="fa fa-sign-in"></span>
+            Entrar
+        </button>
     </ng-template>
 
 </nav>

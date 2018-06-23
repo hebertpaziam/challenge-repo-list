@@ -1,0 +1,21 @@
+.content {
+    text-align: center;
+    > .desc {
+        margin: auto auto 5px auto;
+    }
+    > .social-links {
+        font-size: 35px;
+
+        > .link {
+            display: inline-block;
+            color: transparentize(#000000, 0.25);
+            margin: auto 10px;
+            &:focus,
+            &:hover,
+            &:active {
+                text-decoration: none;
+                color: #000;
+            }
+        }
+    }
+}
