@@ -1,4 +1,4 @@
-<nav>
+<nav class="navbar">
     <div *ngIf="githubService.getSignedStatus(); then signedIn; else notSignedIn"></div>
 
     <ng-template #signedIn>

@@ -23,7 +23,7 @@
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "src/tsconfig.app.json",
                         "assets": ["src/favicon.ico", "src/assets"],
-                        "styles": ["node_modules/font-awesome/css/font-awesome.min.css"],
+                        "styles": ["node_modules/font-awesome/css/font-awesome.min.css", "./src/assets/styles/bootstrap-reboot.min.css"],
                         "scripts": []
                     },
                     "configurations": {
