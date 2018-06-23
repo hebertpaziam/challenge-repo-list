@@ -2,9 +2,18 @@
 * {
     font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+body {
+    background-color: #fafafa;
+}
 main,
 footer {
     max-width: 1012px;
     margin: auto;
     padding: 14px 10px;
+}
+main {
+    background-color: #ffffff;
+}
+footer {
+    background-color: #fcfcfc;
 }
