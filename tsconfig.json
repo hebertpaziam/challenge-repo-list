@@ -1,7 +1,7 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-        "baseUrl": "./",
+        "baseUrl": "./src",
         "outDir": "./dist/out-tsc",
         "sourceMap": true,
         "declaration": false,
@@ -10,6 +10,16 @@
         "experimentalDecorators": true,
         "target": "es5",
         "typeRoots": ["node_modules/@types"],
-        "lib": ["es2017", "dom"]
+        "lib": ["es2017", "dom"],
+        "paths": {
+            "@environment": ["environments/environment"],
+            "@app-directives/*": ["app/shared/directives/*"],
+            "@app-pipes/*": ["src/app/shared/pipes/*"],
+            "@app-enums/*": ["app/shared/enums/*"],
+            "@app-guards/*": ["app/shared/guards/*"],
+            "@app-models/*": ["app/shared/models/*"],
+            "@app-services/*": ["app/shared/services/*"],
+            "@app-util/*": ["app/shared/utilities/*"]
+        }
     }
 }

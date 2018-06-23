@@ -15,7 +15,7 @@
         "**/node_modules": true
     },
     "typescriptHero.imports.organizeOnSave": true,
-    "typescriptHero.imports.stringQuoteStyle": "\"",
+    "typescriptHero.imports.stringQuoteStyle": "'",
     "typescriptHero.imports.grouping": [
         "/^@angular/",
         "/^rxjs/",
