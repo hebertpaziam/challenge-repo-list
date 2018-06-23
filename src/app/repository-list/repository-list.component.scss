@@ -1,4 +1,9 @@
 .repository-list {
+    position: relative;
+    max-width: 1012px;
+    margin: auto;
+    padding: 14px 10px;
+    text-align: center;
     > .repository {
         border: 1px solid #d1d5da;
         border-radius: 3px;

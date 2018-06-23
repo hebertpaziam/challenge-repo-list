@@ -18,4 +18,8 @@ export class AuthenticationComponent implements OnInit {
             this.title.setTitle('GithubRepositoryList - Autenticação');
         }
     }
+
+    doSignIn() {
+        this.githubService.signIn();
+    }
 }

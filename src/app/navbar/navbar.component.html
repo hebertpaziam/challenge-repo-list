@@ -6,25 +6,11 @@
                 <img src="/assets/images/octocat.png" alt="Octocat - GitHub">
             </a>
             <div class="right-side">
-                <div *ngIf="githubService.getSignedStatus(); then signedIn; else notSignedIn"></div>
+                <button type="button" class="btn-action" (click)="doSignOut()" *ngIf="githubService.getSignedStatus();">
+                    <span class="fa fa-sign-out"></span>
+                    Sair
+                </button>
             </div>
         </div>
     </div>
-
-
-
-    <ng-template #signedIn>
-        <button type="button" class="btn-action" (click)="doSignOut()">
-            <span class="fa fa-sign-out"></span>
-            Sair
-        </button>
-    </ng-template>
-
-    <ng-template #notSignedIn>
-        <button type="button" class="btn-action" (click)="doSignIn()">
-            <span class="fa fa-sign-in"></span>
-            Entrar
-        </button>
-    </ng-template>
-
 </nav>
