@@ -5,11 +5,9 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 const SHARED_MODULES = [CommonModule, FormsModule, FormsModule, HttpModule, RouterModule];
-const SHARED_COMPONENTS = [];
 
 @NgModule({
     imports: SHARED_MODULES,
-    exports: [SHARED_MODULES, SHARED_COMPONENTS],
-    declarations: SHARED_COMPONENTS
+    exports: [SHARED_MODULES]
 })
 export class SharedModule {}

@@ -5,26 +5,21 @@ import { SharedModule } from './shared/share.module';
 
 import { AppRoutingModule } from './app.routing';
 
+import { AuthGuard } from '@app-guards/auth.guard';
+
 import { GithubService } from '@app-services/github.service';
 
-import { AppFooterComponent } from './app-footer/app-footer.component';
-import { AppLoginComponent } from './app-login/app-login.component';
-import { AppNavbarComponent } from './app-navbar/app-navbar.component';
-import { AppNotFoundComponent } from './app-not-found/app-not-found.component';
-import { AppRepositoryListComponent } from './app-repository-list/app-repository-list.component';
 import { AppComponent } from './app.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { RepositoryListComponent } from './repository-list/repository-list.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        AppFooterComponent,
-        AppLoginComponent,
-        AppNavbarComponent,
-        AppNotFoundComponent,
-        AppRepositoryListComponent
-    ],
     imports: [BrowserModule, AppRoutingModule, SharedModule],
-    providers: [GithubService],
+    declarations: [AppComponent, AuthenticationComponent, FooterComponent, NavbarComponent, NotFoundComponent, RepositoryListComponent],
+    providers: [GithubService, AuthGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

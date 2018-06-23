@@ -1,0 +1,26 @@
+<nav>
+    <div *ngIf="githubService.getSignedStatus(); then signedIn; else notSignedIn"></div>
+
+    <ng-template #signedIn>
+        <div class="navbar-wrapper">
+            navbar works!
+            <button type="button" (click)="doSignOut()">
+                <span class="fa fa-sign-out"></span>
+                Sair
+            </button>
+        </div>
+
+    </ng-template>
+
+    <ng-template #notSignedIn>
+        <div class="navbar-wrapper">
+            navbar works!
+
+            <button type="button" (click)="doSignIn()">
+                <span class="fa fa-sign-in"></span>
+                Entrar
+            </button>
+        </div>
+    </ng-template>
+
+</nav>

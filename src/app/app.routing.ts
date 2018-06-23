@@ -3,36 +3,29 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from '@app-guards/auth.guard';
 
-import { AppNotFoundComponent } from './app-not-found/app-not-found.component';
-import { AppRepositoryListComponent } from './app-repository-list/app-repository-list.component';
-import { AppComponent } from './app.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { RepositoryListComponent } from './repository-list/repository-list.component';
 
 const ROUTES: Routes = [
     {
+        path: 'autenticacao',
+        component: AuthenticationComponent
+    },
+    {
+        path: 'meus-repositorios',
+        component: RepositoryListComponent,
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard]
+    },
+    {
         path: '',
-        component: AppComponent,
-        canActivateChild: [AuthGuard],
-        children: [
-            {
-                path: 'login',
-                component: AppComponent
-            },
-            {
-                path: 'meus-repositorios',
-                component: AppRepositoryListComponent,
-                canActivate: [AuthGuard],
-                canLoad: [AuthGuard]
-            },
-            {
-                path: '',
-                redirectTo: 'login',
-                pathMatch: 'full'
-            }
-        ]
+        redirectTo: 'autenticacao',
+        pathMatch: 'full'
     },
     {
         path: '**',
-        component: AppNotFoundComponent
+        component: NotFoundComponent
     }
 ];
 

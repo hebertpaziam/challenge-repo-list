@@ -12,7 +12,8 @@
         "**/.svn": true,
         "**/.hg": true,
         "**/*.log": true,
-        "**/node_modules": true
+        "**/node_modules": true,
+        "**/*.spec.ts": true
     },
     "typescriptHero.imports.organizeOnSave": true,
     "typescriptHero.imports.stringQuoteStyle": "'",

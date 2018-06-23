@@ -13,11 +13,12 @@
         "lib": ["es2017", "dom"],
         "paths": {
             "@environment": ["environments/environment"],
+            "@app-components/*": ["app/shared/components/*"],
             "@app-directives/*": ["app/shared/directives/*"],
-            "@app-pipes/*": ["src/app/shared/pipes/*"],
             "@app-enums/*": ["app/shared/enums/*"],
             "@app-guards/*": ["app/shared/guards/*"],
             "@app-models/*": ["app/shared/models/*"],
+            "@app-pipes/*": ["src/app/shared/pipes/*"],
             "@app-services/*": ["app/shared/services/*"],
             "@app-util/*": ["app/shared/utilities/*"]
         }
