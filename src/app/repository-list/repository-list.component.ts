@@ -14,8 +14,8 @@ import * as VanillaToasts from 'vanillatoasts';
     styleUrls: ['./repository-list.component.scss']
 })
 export class RepositoryListComponent implements OnInit {
-    protected repositories: Array<Repository> = [];
-    protected pageTitle: string;
+    public repositories: Array<Repository> = [];
+    public pageTitle: string;
 
     constructor(private title: Title, private githubService: GithubService) {}
 

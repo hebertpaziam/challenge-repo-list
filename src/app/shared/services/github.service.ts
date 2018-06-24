@@ -30,7 +30,7 @@ export class GithubService {
     }
 
     getRepositoryList(): Observable<Array<Repository>> {
-        return this.http.get(`/api.github.com/user/repos`, this.getAuthenticatedHeaders()).pipe(map((res) => res.json()));
+        return this.http.get(`/api.github.com/user/repos?sort=created`, this.getAuthenticatedHeaders()).pipe(map((res) => res.json()));
     }
 
     signIn(code: string) {
