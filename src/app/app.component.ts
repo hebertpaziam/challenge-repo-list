@@ -11,11 +11,5 @@ import { GithubService } from '@app-services/github.service';
 export class AppComponent implements OnInit {
     constructor(private githubService: GithubService, private router: Router) {}
 
-    ngOnInit() {
-        // this.githubService.signStatus.subscribe((status: boolean) => {
-        //     if (status === false) {
-        //         this.router.navigate(['/autenticacao']);
-        //     }
-        // });
-    }
+    ngOnInit() {}
 }

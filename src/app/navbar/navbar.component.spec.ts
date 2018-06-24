@@ -1,25 +1,37 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { GithubService } from '@app-services/github.service';
 
 import { NavbarComponent } from './navbar.component';
 
 describe('NavbarComponent', () => {
-  let component: NavbarComponent;
-  let fixture: ComponentFixture<NavbarComponent>;
+    let comp: NavbarComponent;
+    let fixture: ComponentFixture<NavbarComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(() => {
+        const githubServiceStub = {
+            singOut: () => ({})
+        };
+        TestBed.configureTestingModule({
+            declarations: [NavbarComponent],
+            schemas: [NO_ERRORS_SCHEMA],
+            providers: [{ provide: GithubService, useValue: githubServiceStub }]
+        });
+        fixture = TestBed.createComponent(NavbarComponent);
+        comp = fixture.componentInstance;
+    });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(NavbarComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    it('can load instance', () => {
+        expect(comp).toBeTruthy();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    describe('doSignOut', () => {
+        it('makes expected calls', () => {
+            const githubServiceStub: GithubService = fixture.debugElement.injector.get(GithubService);
+            spyOn(githubServiceStub, 'singOut');
+            comp.doSignOut();
+            expect(githubServiceStub.singOut).toHaveBeenCalled();
+        });
+    });
 });

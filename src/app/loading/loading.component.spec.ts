@@ -1,25 +1,53 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { GithubService } from '@app-services/github.service';
 
 import { LoadingComponent } from './loading.component';
 
 describe('LoadingComponent', () => {
-  let component: LoadingComponent;
-  let fixture: ComponentFixture<LoadingComponent>;
+    let comp: LoadingComponent;
+    let fixture: ComponentFixture<LoadingComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ LoadingComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(() => {
+        const activatedRouteStub = {
+            queryParams: {
+                subscribe: () => ({})
+            }
+        };
+        const routerStub = {
+            navigate: () => ({})
+        };
+        const githubServiceStub = {
+            signIn: () => ({})
+        };
+        TestBed.configureTestingModule({
+            declarations: [LoadingComponent],
+            schemas: [NO_ERRORS_SCHEMA],
+            providers: [
+                { provide: ActivatedRoute, useValue: activatedRouteStub },
+                { provide: Router, useValue: routerStub },
+                { provide: GithubService, useValue: githubServiceStub }
+            ]
+        });
+        fixture = TestBed.createComponent(LoadingComponent);
+        comp = fixture.componentInstance;
+    });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(LoadingComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    it('can load instance', () => {
+        expect(comp).toBeTruthy();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    describe('ngOnInit', () => {
+        it('makes expected calls', () => {
+            const routerStub: Router = fixture.debugElement.injector.get(Router);
+            const githubServiceStub: GithubService = fixture.debugElement.injector.get(GithubService);
+            spyOn(routerStub, 'navigate');
+            spyOn(githubServiceStub, 'signIn');
+            comp.ngOnInit();
+            expect(routerStub.navigate).toHaveBeenCalled();
+            expect(githubServiceStub.signIn).toHaveBeenCalled();
+        });
+    });
 });
