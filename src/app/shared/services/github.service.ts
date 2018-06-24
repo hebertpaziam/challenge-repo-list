@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { environment } from '@environment';
 
@@ -16,7 +16,7 @@ import * as VanillaToasts from 'vanillatoasts';
 export class GithubService {
     private token: string;
     private isSignedIn: boolean;
-    public readonly signStatusObservable = new Subject<boolean>();
+    public readonly signStatusObservable = new BehaviorSubject<boolean>(false);
 
     constructor(private router: Router, private http: HttpClient) {
         this.signStatusObservable.subscribe((status: boolean) => (this.isSignedIn = status));
