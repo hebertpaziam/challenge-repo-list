@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, RequestOptions, Response } from '@angular/http';
+import { Headers, Http, RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
 
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { environment } from '@environment';
 
@@ -30,12 +31,10 @@ export class GithubService {
         return this.isSignedIn;
     }
 
-    getRepositoryList(): Promise<Array<Repository>> {
+    getRepositoryList(): Observable<Array<Repository>> {
         return this.http
             .get(`${environment.API_GITHUB}/users/hebertpazian/repos`, this.getHeaders())
-            .toPromise()
-            .then((response: Response) => this.extractData(response))
-            .catch((error: Error) => this.handleError(error));
+            .pipe(map((res) => res.json()));
     }
 
     signIn() {
@@ -56,21 +55,6 @@ export class GithubService {
         this.router.navigate(['meus-repositorios']);
     }
 
-    private extractData(response: Response): any {
-        if (response.json() && response.json()) {
-            return Promise.resolve(response.json());
-        } else if (response.json()) {
-            return Promise.resolve(response.json());
-        } else {
-            return Promise.resolve(response.json());
-        }
-    }
-    private handleError(error): Promise<any> {
-        if (error.status === 401) {
-            this.singOut();
-        }
-        return Promise.reject(error.message || error);
-    }
     private getHeaders(): RequestOptions {
         const headers: Headers = new Headers();
         // headers.set('Authorization', `Bearer ${this.user.token}`);

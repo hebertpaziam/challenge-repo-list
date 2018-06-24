@@ -14,12 +14,20 @@ import * as moment from 'moment';
 })
 export class RepositoryListComponent implements OnInit {
     protected repositories: Array<Repository> = [];
+    protected pageTitle: string;
 
     constructor(private title: Title, private githubService: GithubService) {}
 
     ngOnInit() {
         this.title.setTitle('GithubRepositoryList - Meus Repositórios');
-        this.githubService.getRepositoryList().then((repositories: Array<Repository>) => Object.assign(this.repositories, repositories));
+        this.githubService.getRepositoryList().subscribe((repositories: Array<Repository>) => {
+            Object.assign(this.repositories, repositories);
+            if (this.repositories.length) {
+                this.pageTitle = 'Lista de Repositórios';
+            } else {
+                this.pageTitle = 'Lista de Repositórios vazia';
+            }
+        }, () => (this.pageTitle = 'Erro ao carregar repositório'));
     }
 
     getDate(date): string {
