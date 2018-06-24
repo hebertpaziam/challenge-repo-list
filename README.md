@@ -70,4 +70,5 @@ $ npm run test
 | Webpack - config próprio | X** |
 
 *Os testes estão incompletos, mas o projeto está "testável" `npm run test`.
+
 **Como mensionado acima o comando `ng eject` do Angular CLI está desabilitado pela equipe Angular na versão 6.0.0 
