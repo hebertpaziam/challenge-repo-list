@@ -1,10 +1,13 @@
 <div class="sign-container">
     <div class="sign-panel">
         <h1 class="title">Lista de repositórios do GitHub</h1>
-        <button type="button" class="btn-action" (click)="doSignIn()">
-            <span class="fa fa-sign-in"></span>
-            Logar com Github
-        </button>
+        <form action="" #form="ngForm" class="sign-in-form">
+            <input type="email" name="email" class="field" placeholder="Digite seu email" [(ngModel)]="email">
+            <button type="button" class="btn-action" (click)="doSignIn()">
+                <span class="fa fa-sign-in"></span>
+                Logar com Github
+            </button>
+        </form>
         <span class="obs">Para visualizar seus repositórios é necessário que esteja cadastrado no Github, caso não seja,
             <a href="https://github.com/join?source=login" target="_blank">cadastre-se!</a>
         </span>

@@ -1,3 +1,10 @@
 <div class="repository-list">
-    <div class="repository"></div>
+    <h1>Lista de Repositórios</h1>
+    <div class="repository" *ngFor="let repository of repositories">
+        <a [href]="repository.html_url" target="_blank" class="name">{{repository.name}}</a>
+        <div class="description">{{repository.description}}</div>
+        <div class="forks"><span class="fa fa-code-fork"></span> {{repository.forks_count}}</div>
+        <div class="stargazers"><span class="fa fa-star"></span> {{repository.stargazers_count}}</div>
+        <div class="updated-at">Atualizado {{getDate(repository.updated_at)}}</div>
+    </div>
 </div>

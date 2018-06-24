@@ -9,6 +9,7 @@ import { GithubService } from '@app-services/github.service';
     styleUrls: ['./authentication.component.scss']
 })
 export class AuthenticationComponent implements OnInit {
+    protected email: string;
     constructor(private githubService: GithubService, private title: Title) {}
 
     ngOnInit() {
@@ -20,6 +21,7 @@ export class AuthenticationComponent implements OnInit {
     }
 
     doSignIn() {
+        // alert(this.email)
         this.githubService.signIn();
     }
 }

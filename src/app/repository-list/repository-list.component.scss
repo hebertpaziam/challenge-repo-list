@@ -5,6 +5,9 @@
     padding: 14px 10px;
     text-align: center;
     > .repository {
+        display: inline-block;
+        margin: 10px auto;
+        width: 100%;
         border: 1px solid #d1d5da;
         border-radius: 3px;
     }
