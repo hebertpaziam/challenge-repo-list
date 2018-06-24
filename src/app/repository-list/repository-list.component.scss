@@ -24,7 +24,7 @@
             display: inline-block;
             width: 100%;
             margin-bottom: 10px;
-            height: 42px;
+            min-height: 42px;
             line-height: 21px;
             font-size: 14px;
             overflow: hidden;
@@ -39,23 +39,17 @@
             > .updated-at {
                 display: inline-block;
                 vertical-align: middle;
+                margin-right: 10px;
             }
-            > .forks {
-                margin: auto 5px auto auto;
-                .fa {
-                    font-size: 20px;
-                }
+            > .forks .fa {
+                font-size: 20px;
             }
 
-            > .stargazers {
-                margin: auto 5px;
-                .fa {
-                    font-size: 18px;
-                }
+            > .stargazers .fa {
+                font-size: 18px;
             }
 
             > .updated-at {
-                margin: auto auto auto 5px;
                 font-size: 12px;
             }
         }
