@@ -24,7 +24,7 @@ export class GithubService {
         this.signStatusObservable.next(this.token ? true : false);
     }
 
-    getSignedStatus() {
+    getSignedStatus(): boolean {
         return this.isSignedIn;
     }
 

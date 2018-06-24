@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
 * {
     font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -16,7 +15,7 @@ footer {
     transform: translate(-50%, -50%);
 }
 
-//fix  toast plugin position
+/*fix  toast plugin position*/
 #vanillatoasts-container {
     top: 56px;
 }

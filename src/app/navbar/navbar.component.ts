@@ -8,9 +8,15 @@ import { GithubService } from '@app-services/github.service';
     styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-    constructor(protected githubService: GithubService) {}
+    public isSignedIn: boolean;
 
-    ngOnInit() {}
+    constructor(private githubService: GithubService) {}
+
+    ngOnInit() {
+        this.githubService.signStatusObservable.subscribe((status) => {
+            this.isSignedIn = status;
+        });
+    }
 
     doSignOut() {
         this.githubService.singOut();

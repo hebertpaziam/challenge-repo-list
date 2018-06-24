@@ -27,7 +27,7 @@
                             "./src/assets/styles/bootstrap-reboot.min.css",
                             "node_modules/font-awesome/css/font-awesome.min.css",
                             "node_modules/vanillatoasts/vanillatoasts.css",
-                            "./src/assets/styles/main.scss"
+                            "./src/assets/styles/main.css"
                         ],
                         "scripts": ["node_modules/moment/min/moment.min.js", "node_modules/vanillatoasts/vanillatoasts.js"]
                     },
