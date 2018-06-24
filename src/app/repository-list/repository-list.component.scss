@@ -6,9 +6,59 @@
     text-align: center;
     > .repository {
         display: inline-block;
-        margin: 10px auto;
         width: 100%;
+        margin: 10px auto;
+        padding: 15px;
         border: 1px solid #d1d5da;
         border-radius: 3px;
+        text-align: left;
+        > .name {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 10px;
+            color: #0366d6;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        > .description {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 10px;
+            height: 42px;
+            line-height: 21px;
+            font-size: 14px;
+            overflow: hidden;
+        }
+
+        > .stats {
+            color: #586069;
+            display: inline-block;
+            width: 100%;
+            > .forks,
+            > .stargazers,
+            > .updated-at {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            > .forks {
+                margin: auto 5px auto auto;
+                .fa {
+                    font-size: 20px;
+                }
+            }
+
+            > .stargazers {
+                margin: auto 5px;
+                .fa {
+                    font-size: 18px;
+                }
+            }
+
+            > .updated-at {
+                margin: auto auto auto 5px;
+                font-size: 12px;
+            }
+        }
     }
 }
