@@ -1,5 +1,5 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
@@ -11,7 +11,7 @@ describe('AuthenticationComponent', () => {
     let comp: AuthenticationComponent;
     let fixture: ComponentFixture<AuthenticationComponent>;
 
-    beforeEach(() => {
+    beforeEach(async(() => {
         const titleStub = {
             setTitle: () => ({})
         };
@@ -32,7 +32,7 @@ describe('AuthenticationComponent', () => {
         });
         fixture = TestBed.createComponent(AuthenticationComponent);
         comp = fixture.componentInstance;
-    });
+    }));
 
     it('can load instance', () => {
         expect(comp).toBeTruthy();
@@ -44,11 +44,9 @@ describe('AuthenticationComponent', () => {
             const routerStub: Router = fixture.debugElement.injector.get(Router);
             const githubServiceStub: GithubService = fixture.debugElement.injector.get(GithubService);
             spyOn(titleStub, 'setTitle');
-            spyOn(routerStub, 'navigate');
             spyOn(githubServiceStub, 'getSignedStatus');
             comp.ngOnInit();
             expect(titleStub.setTitle).toHaveBeenCalled();
-            expect(routerStub.navigate).toHaveBeenCalled();
             expect(githubServiceStub.getSignedStatus).toHaveBeenCalled();
         });
     });

@@ -1,5 +1,5 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GithubService } from '@app-services/github.service';
 
@@ -9,7 +9,7 @@ describe('NavbarComponent', () => {
     let comp: NavbarComponent;
     let fixture: ComponentFixture<NavbarComponent>;
 
-    beforeEach(() => {
+    beforeEach(async(() => {
         const githubServiceStub = {
             singOut: () => ({})
         };
@@ -20,7 +20,7 @@ describe('NavbarComponent', () => {
         });
         fixture = TestBed.createComponent(NavbarComponent);
         comp = fixture.componentInstance;
-    });
+    }));
 
     it('can load instance', () => {
         expect(comp).toBeTruthy();
