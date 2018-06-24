@@ -15,10 +15,11 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RepositoryListComponent } from './repository-list/repository-list.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
     imports: [BrowserModule, AppRoutingModule, SharedModule],
-    declarations: [AppComponent, AuthenticationComponent, FooterComponent, NavbarComponent, NotFoundComponent, RepositoryListComponent],
+    declarations: [AppComponent, AuthenticationComponent, FooterComponent, NavbarComponent, NotFoundComponent, RepositoryListComponent, LoadingComponent],
     providers: [GithubService, AuthGuard],
     bootstrap: [AppComponent]
 })

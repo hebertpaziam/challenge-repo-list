@@ -4,11 +4,13 @@
     margin: auto;
     padding: 14px 10px;
     text-align: center;
+
     > .repository {
         display: inline-block;
         width: 100%;
         margin: 10px auto;
         padding: 15px;
+        background-color: #ffffff;
         border: 1px solid #d1d5da;
         border-radius: 3px;
         text-align: left;
@@ -34,6 +36,7 @@
             color: #586069;
             display: inline-block;
             width: 100%;
+
             > .forks,
             > .stargazers,
             > .updated-at {
@@ -49,7 +52,7 @@
                 font-size: 18px;
             }
 
-            > .updated-at {
+            > .created_at {
                 font-size: 12px;
             }
         }

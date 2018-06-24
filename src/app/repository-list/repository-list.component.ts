@@ -6,6 +6,7 @@ import { GithubService } from '@app-services/github.service';
 import { Repository } from '@app-models/repository.model';
 
 import * as moment from 'moment';
+import * as VanillaToasts from 'vanillatoasts';
 
 @Component({
     selector: 'app-repository-list',
@@ -20,14 +21,21 @@ export class RepositoryListComponent implements OnInit {
 
     ngOnInit() {
         this.title.setTitle('GithubRepositoryList - Meus Repositórios');
-        this.githubService.getRepositoryList().subscribe((repositories: Array<Repository>) => {
-            Object.assign(this.repositories, repositories);
-            if (this.repositories.length) {
-                this.pageTitle = 'Lista de Repositórios';
-            } else {
-                this.pageTitle = 'Lista de Repositórios vazia';
+        this.githubService.getRepositoryList().subscribe(
+            (repositories: Array<Repository>) => {
+                Object.assign(this.repositories, repositories);
+                this.pageTitle = this.repositories.length ? 'Repositórios' : 'Lista de Repositórios vazia';
+            },
+            () => {
+                this.githubService.singOut();
+                VanillaToasts.create({
+                    title: 'Erro!',
+                    text: `Não foi possivel carregar a lista de repositórios.`,
+                    type: 'error',
+                    timeout: 3500
+                });
             }
-        }, () => (this.pageTitle = 'Erro ao carregar repositório'));
+        );
     }
 
     getDate(date): string {

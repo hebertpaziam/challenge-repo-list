@@ -8,23 +8,21 @@ import { map } from 'rxjs/operators';
 import { environment } from '@environment';
 
 import { Repository } from '@app-models/repository.model';
-import { User } from '@app-models/user.model';
+
+import * as VanillaToasts from 'vanillatoasts';
 
 @Injectable({
     providedIn: 'root'
 })
 export class GithubService {
-    public user: User = new User();
+    private token: string;
     private isSignedIn: boolean;
-
     public readonly signStatusObservable = new Subject<boolean>();
 
     constructor(private router: Router, private http: Http) {
         this.signStatusObservable.subscribe((status: boolean) => (this.isSignedIn = status));
-
-        this.user.token = localStorage.getItem('token');
-
-        this.signStatusObservable.next(this.user.token ? true : false);
+        this.token = localStorage.getItem('token');
+        this.signStatusObservable.next(this.token ? true : false);
     }
 
     getSignedStatus() {
@@ -32,17 +30,28 @@ export class GithubService {
     }
 
     getRepositoryList(): Observable<Array<Repository>> {
-        return this.http
-            .get(`${environment.API_GITHUB}/users/hebertpazian/repos`, this.getHeaders())
-            .pipe(map((res) => res.json()));
+        return this.http.get(`/api.github.com/user/repos`, this.getAuthenticatedHeaders()).pipe(map((res) => res.json()));
     }
 
-    signIn() {
-        this.user.token = new Date().toJSON();
-
-        localStorage.setItem('token', this.user.token);
-        this.signStatusObservable.next(true);
-        this.navToHome();
+    signIn(code: string) {
+        this.requestToken(code)
+            .pipe(map((res) => res.json()))
+            .subscribe(
+                (data) => {
+                    this.token = data.access_token;
+                    localStorage.setItem('token', this.token);
+                    this.signStatusObservable.next(true);
+                    this.router.navigate(['meus-repositorios']);
+                },
+                () => {
+                    VanillaToasts.create({
+                        title: 'Erro!',
+                        text: `Não foi possivel acessar seu repositório, tente novamente mais tarde.`,
+                        type: 'error',
+                        timeout: 3500
+                    });
+                }
+            );
     }
 
     singOut() {
@@ -51,13 +60,27 @@ export class GithubService {
         this.router.navigate(['autenticacao']);
     }
 
-    navToHome() {
-        this.router.navigate(['meus-repositorios']);
+    private requestToken(code: string) {
+        return this.http.post(
+            '/github.com/login/oauth/access_token',
+            {
+                client_id: environment.CLIENT_ID,
+                client_secret: environment.CLIENT_SECRET,
+                code: code
+            },
+            this.getHeaders()
+        );
     }
 
     private getHeaders(): RequestOptions {
         const headers: Headers = new Headers();
-        // headers.set('Authorization', `Bearer ${this.user.token}`);
+        headers.set('Accept', 'application/json');
         return new RequestOptions({ headers: headers });
+    }
+    private getAuthenticatedHeaders(): RequestOptions {
+        const headers: Headers = new Headers();
+        headers.set('Accept', 'application/json');
+        headers.set('Authorization', `Bearer ${this.token}`);
+        return new RequestOptions({ headers: headers, withCredentials: true });
     }
 }

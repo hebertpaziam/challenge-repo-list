@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '@app-guards/auth.guard';
 
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { LoadingComponent } from './loading/loading.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RepositoryListComponent } from './repository-list/repository-list.component';
 
@@ -11,6 +12,10 @@ const ROUTES: Routes = [
     {
         path: 'autenticacao',
         component: AuthenticationComponent
+    },
+    {
+        path: 'carregando-sessao',
+        component: LoadingComponent
     },
     {
         path: 'meus-repositorios',

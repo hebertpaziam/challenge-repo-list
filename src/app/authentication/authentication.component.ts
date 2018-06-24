@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+
+import { environment } from '@environment';
 
 import { GithubService } from '@app-services/github.service';
 
@@ -9,19 +12,19 @@ import { GithubService } from '@app-services/github.service';
     styleUrls: ['./authentication.component.scss']
 })
 export class AuthenticationComponent implements OnInit {
-    protected email: string;
-    constructor(private githubService: GithubService, private title: Title) {}
+    constructor(private githubService: GithubService, private router: Router, private title: Title) {}
 
     ngOnInit() {
-        if (this.githubService.getSignedStatus()) {
-            this.githubService.navToHome();
+        if (this.githubService.getSignedStatus() === true) {
+            this.router.navigate(['meus-repositorios']);
         } else {
             this.title.setTitle('GithubRepositoryList - Autenticação');
         }
     }
 
-    doSignIn() {
-        // alert(this.email)
-        this.githubService.signIn();
+    requestCode() {
+        location.href = `https://github.com/login/oauth/authorize?client_id=${
+            environment.CLIENT_ID
+        }&scope=user,public_repo&redirect_uri=http://localhost:4200/carregando-sessao`;
     }
 }

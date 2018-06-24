@@ -15,7 +15,4 @@ export class NavbarComponent implements OnInit {
     doSignOut() {
         this.githubService.singOut();
     }
-    doSignIn() {
-        this.githubService.signIn();
-    }
 }

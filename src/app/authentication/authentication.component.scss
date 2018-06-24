@@ -28,31 +28,21 @@
         > .title {
             font-size: 25px;
         }
-        > .sign-in-form {
-            margin: 50px auto;
+        > .btn-action {
+            position: relative;
+            display: block;
+            width: 270px;
+            height: 43px;
+            margin: 100px auto;
+            font-size: 26px;
             text-align: center;
-            > .field,
-            > .btn-action {
-                position: relative;
-                display: inline-block;
-                width: 270px;
-                height: 43px;
-                margin: 20px auto;
-                border-radius: 3px;
-                border: 1px solid #000000;
-                background-color: #ffffff;
-            }
-            > .field {
-                text-align: left;
-                padding: 5px 10px;
-            }
-            > .btn-action {
-                font-size: 26px;
-                cursor: pointer;
-                transition: all 100ms linear;
-                &:hover {
-                    background-color: darken(#ffffff, 10%);
-                }
+            cursor: pointer;
+            border-radius: 3px;
+            border: 1px solid #000000;
+            background-color: #ffffff;
+            transition: all 100ms linear;
+            &:hover {
+                background-color: darken(#ffffff, 10%);
             }
         }
     }

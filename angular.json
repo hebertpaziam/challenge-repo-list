@@ -26,9 +26,10 @@
                         "styles": [
                             "./src/assets/styles/bootstrap-reboot.min.css",
                             "node_modules/font-awesome/css/font-awesome.min.css",
+                            "node_modules/vanillatoasts/vanillatoasts.css",
                             "./src/assets/styles/main.scss"
                         ],
-                        "scripts": ["node_modules/moment/min/moment.min.js"]
+                        "scripts": ["node_modules/moment/min/moment.min.js", "node_modules/vanillatoasts/vanillatoasts.js"]
                     },
                     "configurations": {
                         "production": {
@@ -53,7 +54,8 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "github-repository-list:build"
+                        "browserTarget": "github-repository-list:build",
+                        "proxyConfig": "proxy.config.json"
                     },
                     "configurations": {
                         "production": {
