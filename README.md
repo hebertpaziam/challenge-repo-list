@@ -50,6 +50,7 @@ $ npm run test
 | Framework JavaScript | OK |
 | Task Runner | OK |
 | ECMAScript 2015+ (ES6) | OK* |
+
 *Foi utilizado Typescript.
 
 
@@ -67,5 +68,6 @@ $ npm run test
 | Utilizar Webpack | OK |
 | Subir a aplicação em algum host cloud| X |
 | Webpack - config próprio | X** |
+
 *Os testes estão incompletos, mas o projeto está "testável" `npm run test`.
 **Como mensionado acima o comando `ng eject` do Angular CLI está desabilitado pela equipe Angular na versão 6.0.0 
