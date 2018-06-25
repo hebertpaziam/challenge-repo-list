@@ -27,7 +27,7 @@ $ npm run test
 #### Implementação
 - [Angular](https://angular.io/) versão 6.0.3
 - [API do GitHub](https://developer.github.com/v3/) versão 3
-- [RSCSS](http://rscss.io/) e [SASS](http://sass-lang.com/) para a escrita do css.
+- [RSCSS](http://rscss.io/) desenvolvido com [SASS](http://sass-lang.com/) para gerar o css dos componentes.
 - [Karma](https://karma-runner.github.io) padrão de testes do Angular.
 - [Webpack](https://webpack.js.org/) padrão do Angular CLI.
 
