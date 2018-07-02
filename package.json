@@ -24,7 +24,7 @@
         "start": "node ./server.js",
         "ng": "ng",
         "serve": "ng serve",
-        "build": "ng build",
+        "build": "ng build --prod",
         "test": "ng test",
         "lint": "ng lint"
     },
