@@ -25,6 +25,6 @@ export class AuthenticationComponent implements OnInit {
     requestCode() {
         location.href = `https://github.com/login/oauth/authorize?client_id=${
             environment.CLIENT_ID
-        }&scope=public_repo&redirect_uri=http://localhost:4200/carregando-sessao`;
+        }&scope=public_repo&redirect_uri=${location.host}/carregando-sessao`;
     }
 }
