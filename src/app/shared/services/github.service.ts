@@ -50,7 +50,8 @@ export class GithubService {
                     title: 'Erro!',
                     text: `Não foi possivel acessar seu repositório, tente novamente mais tarde.`,
                     type: 'error',
-                    timeout: 3500
+                    timeout: 3500,
+                    callback: () => this.router.navigate(['/'])
                 });
             }
         );

@@ -23,9 +23,9 @@ export class LoadingComponent implements OnInit {
                     title: 'Erro!',
                     text: `Não foi possivel se autenticar no GitHub, tente novamente mais tarde.`,
                     type: 'error',
-                    timeout: 3500
+                    timeout: 3500,
+                    callback: () => this.router.navigate(['/'])
                 });
-                this.router.navigate(['meus-repositorios']);
             }
         });
     }
