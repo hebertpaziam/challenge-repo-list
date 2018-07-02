@@ -19,6 +19,7 @@
         "Sass",
         "RSCSS"
     ],
+    "main": "server.js",
     "scripts": {
         "start": "ng build --prod && node ./server.js",
         "ng": "ng",
