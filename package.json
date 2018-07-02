@@ -26,7 +26,6 @@
     },
     "scripts": {
         "start": "node ./server.js",
-        "ng": "ng",
         "serve": "ng build && node ./server.js",
         "build": "ng build --prod",
         "test": "ng test",
