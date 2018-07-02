@@ -1,6 +1,7 @@
 # GithubRepositoryList
 
 Aplicação em Angular para listagem de repositórios do GitHub.
+Homepage: `https://github-repository-list.herokuapp.com`
 
 ### Instalação e Uso
 Instale o [Node](https://nodejs.org/) e [NPM](https://www.npmjs.com/) e utilize os comandos abaixo.
@@ -57,7 +58,7 @@ $ npm run test
 | Utilizar Rxjs | OK |
 | Utilizar Lint | OK |
 | Utilizar Webpack | OK |
-| Subir a aplicação em algum host cloud| X |
+| Subir a aplicação em algum host cloud| OK |
 | Webpack - config próprio | X** |
 
 *Os testes estão incompletos, mas o projeto está "testável" `npm run test`.
