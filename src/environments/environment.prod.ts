@@ -1,6 +1,6 @@
 export const environment = {
     production: true,
 
-    CLIENT_ID: 'cace739e94cba8cbabb6',
-    CLIENT_SECRET: '9a0bfb19a628dae1bf9ff1cb02882df78e4e72d6'
+    CLIENT_ID: '456074710c389e7f1f1b',
+    CLIENT_SECRET: '971e6deecee2e41d1880ba25b0a3c8e89198423b'
 };
