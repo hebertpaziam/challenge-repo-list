@@ -1,0 +1,41 @@
+* {
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: #fafafa;
+}
+footer {
+    background-color: #fcfcfc;
+}
+
+.loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*fix  toast plugin position*/
+#vanillatoasts-container {
+    top: 56px;
+}
+
+.vanillatoasts-success {
+    border: 2px solid #51c625;
+    border-bottom: 4px solid #51c625;
+}
+
+.vanillatoasts-warning {
+    border: 2px solid #db9215;
+    border-bottom: 4px solid #db9215;
+}
+
+.vanillatoasts-error {
+    border: 2px solid #db2b1d;
+    border-bottom: 4px solid #db2b1d;
+}
+
+.vanillatoasts-info {
+    border: 2px solid #27abdb;
+    border-bottom: 4px solid #27abdb;
+}

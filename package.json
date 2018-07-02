@@ -21,7 +21,8 @@
     ],
     "main": "server.js",
     "scripts": {
-        "start": "ng build --prod && node ./server.js",
+        "prestart": "ng build --prod",
+        "start": "node ./server.js",
         "ng": "ng",
         "serve": "ng serve",
         "build": "ng build --prod",
