@@ -20,6 +20,10 @@
         "RSCSS"
     ],
     "main": "server.js",
+    "engines": {
+        "node": ">=8.11.2",
+        "npm": ">=6.1.0"
+    },
     "scripts": {
         "prestart": "ng build --prod",
         "start": "node ./server.js",
