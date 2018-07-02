@@ -7,7 +7,7 @@ Instale o [Node](https://nodejs.org/) e [NPM](https://www.npmjs.com/) e utilize 
 
 ```sh
 $ npm install
-$ npm start
+$ npm run serve
 ```
 
 #### Gerando a build de produção.
