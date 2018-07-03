@@ -5,12 +5,11 @@
             <a [routerLink]="['./']" class="brand">
                 <img src="/assets/images/octocat.png" alt="Octocat - GitHub">
             </a>
-            <div class="right-side">
-                <button type="button" class="btn-action" (click)="doSignOut()" *ngIf="isSignedIn">
-                    <span class="fa fa-sign-out"></span>
-                    Sair
-                </button>
-            </div>
+
+            <button type="button" class="btn-action" (click)="doSignOut()" *ngIf="isSignedIn">
+                <span class="fa fa-sign-out"></span>
+                Sair
+            </button>
         </div>
     </div>
 </nav>

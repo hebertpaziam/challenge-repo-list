@@ -1,8 +1,10 @@
-<div class="repository-list">
+<form #form="ngForm" class="repository-list">
 
     <h1>{{pageTitle}}</h1>
 
-    <div class="repository" *ngFor="let repository of repositories">
+    <input class="search" type="text" name="search" placeholder="Nome, descrição ou linguagem..." [(ngModel)]="searchTerm" (input)="searchTermStream.next(searchTerm)" *ngIf="repositories.length">
+
+    <div class="repository" *ngFor="let repository of repositoriesToShow">
         <a [href]="repository.html_url" target="_blank" class="name">{{repository.name}}</a>
         <div class="description">{{repository.description}}</div>
         <div class="stats">
@@ -23,4 +25,7 @@
             <div class="item -text">Criado em {{getDate(repository.created_at)}}</div>
         </div>
     </div>
-</div>
+    <div *ngIf="repositories.length && !repositoriesToShow.length">
+        <h3>Nenhum repositório encontrado!</h3>
+    </div>
+</form>
